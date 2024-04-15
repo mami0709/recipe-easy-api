@@ -6,7 +6,7 @@ services:
             context: .
             dockerfile: Dockerfile
         image: laravelphp:v1
-        container_name: recipe_easy_api
+        container_name: recipe_maker_api
         depends_on:
             - mysql
         volumes:
@@ -18,7 +18,7 @@ services:
             DB_CONNECTION: mysql
             DB_HOST: mysql
             DB_PORT: 3306
-            DB_DATABASE: recipe_easy_api
+            DB_DATABASE: recipe_maker_api
             DB_USERNAME: root
             DB_PASSWORD: password
 
@@ -31,7 +31,7 @@ services:
             - mysql_data:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: password
-            MYSQL_DATABASE: recipe_easy_api
+            MYSQL_DATABASE: recipe_maker_api
 
 volumes:
     mysql_data:
