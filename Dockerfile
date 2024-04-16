@@ -14,6 +14,12 @@ RUN apt-get update && apt-get install -y \
 # Composerのインストール
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# プロジェクトのファイルをコピー
+COPY . /var/www/html
+
 WORKDIR /var/www/html
+
+# 必要なパッケージのインストール
+RUN composer install
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
